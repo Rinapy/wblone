@@ -9,16 +9,16 @@ type Human struct {
 }
 
 type Action struct {
-	human Human
+	*Human
 }
 
 func (a *Action) sayName() {
-	fmt.Printf("Hello, my name %s.", a.human.Name)
+	fmt.Printf("Hello, my name %s.", a.Name)
 }
 
 func main() {
 	ac := Action{
-		Human{
+		&Human{
 			Name: "Bill",
 			Age:  23,
 			Sex:  "male",

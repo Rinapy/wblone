@@ -14,7 +14,7 @@ type MyChannel struct {
 }
 
 func (mc *MyChannel) SafeClose() {
-	fmt.Println("SafeClose: сэйфово закрываю канал")
+	fmt.Println("SafeClose: сэйвово закрываю канал")
 	mc.once.Do(func() {
 		close(mc.ch)
 		mc.isClosed = true

@@ -3,9 +3,10 @@ package main
 import "fmt"
 
 type Human struct {
-	Name string
-	Age  int
-	Sex  string
+	Name  string
+	Age   int
+	Sex   string
+	Power int
 }
 
 type Action struct {
@@ -13,16 +14,23 @@ type Action struct {
 }
 
 func (a *Action) sayName() {
-	fmt.Printf("Hello, my name %s.", a.Name)
+	fmt.Printf("Hello, my name %s.\n", a.Name)
+}
+
+func (a *Action) goTraining() {
+	fmt.Printf("%s, go to training.\n", a.Name)
+	a.Power--
 }
 
 func main() {
+	hum := Human{
+		Name: "Bill",
+		Age:  23,
+		Sex:  "male",
+	}
 	ac := Action{
-		&Human{
-			Name: "Bill",
-			Age:  23,
-			Sex:  "male",
-		},
+		&hum,
 	}
 	ac.sayName()
+	ac.goTraining()
 }
